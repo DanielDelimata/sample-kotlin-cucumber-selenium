@@ -1,0 +1,36 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.8.0'
+    id 'io.qameta.allure' version '2.8.1'
+}
+
+group = 'eu.delimata'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    allureVersion           = '2.16.1'
+    assertJVersion          = '3.21.0'
+    cucumberVersion         = '6.10.0'
+    junitVersion            = '4.13.1'
+    kotlinVersion           = '1.5.31'
+    lombokVersion           = '1.18.18'
+    seleniumVersion         = '4.10.0'
+    slf4jVersion            = '2.0.0-alpha4'
+}
+
+dependencies {
+    testImplementation      group: 'org.seleniumhq.selenium',   name: 'selenium-java',          version: "${seleniumVersion}"
+    testImplementation      group: 'org.assertj',               name: 'assertj-core',           version: "${assertJVersion}"
+    testImplementation      group: 'org.slf4j',                 name: 'slf4j-simple',           version: "${slf4jVersion}"
+    testImplementation      group: 'junit',                     name: 'junit',                  version: "${junitVersion}"
+    testImplementation      group: 'io.cucumber',               name: 'cucumber-junit',         version: "${cucumberVersion}"
+    testImplementation      group: 'io.cucumber',               name: 'cucumber-java',          version: "${cucumberVersion}"
+    testImplementation      group: 'io.qameta.allure',          name: 'allure-cucumber6-jvm',   version: "${allureVersion}"
+    testImplementation      group: 'org.jetbrains.kotlin',      name: 'kotlin-stdlib',          version: "${kotlinVersion}"
+    testImplementation      group: 'org.jetbrains.kotlin',      name: 'kotlin-test-junit',      version: "${kotlinVersion}"
+}
+
+defaultTasks 'clean','test'
